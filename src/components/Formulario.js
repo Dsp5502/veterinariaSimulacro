@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { urlApi } from '../helpers/url';
 
-const Formulario = ({ getData }) => {
+const Formulario = () => {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -33,7 +33,7 @@ const Formulario = ({ getData }) => {
   const postData = () => {
     axios
       .post(urlApi, mascotaDatos)
-      .then((resp) => getData())
+      .then((resp) => console.log(resp))
       .catch((error) => console.log(error));
   };
   return (
