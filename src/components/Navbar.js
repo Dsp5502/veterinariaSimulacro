@@ -3,12 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav>
-        <NavLink to='/'>Home</NavLink>
-        <NavLink to='/pacientes'>Ingresar Paciente</NavLink>
+    <>
+      <nav className='flex flex-col    md:flex-row m-5 '>
+        <NavLink className='mx-5 text-xl font-bold' to='/'>
+          Home
+        </NavLink>
+        <NavLink className='mx-5 text-xl font-bold' to='/pacientes'>
+          Ingresar Paciente
+        </NavLink>
       </nav>
-    </div>
+    </>
   );
 };
 
