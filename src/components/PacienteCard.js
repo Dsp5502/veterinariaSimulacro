@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { urlApi } from '../helpers/url';
 
-const PacienteCard = ({ pacient }) => {
+const PacienteCard = ({ pacient, getdata }) => {
   const { nombre, propietario, email, direccion, telefono, sintomas, id } =
     pacient;
 
@@ -10,6 +10,7 @@ const PacienteCard = ({ pacient }) => {
     axios
       .delete(urlApi + id)
       .then((resp) => {
+        getdata();
         console.log(resp);
       })
       .catch((err) => console.log(err));
@@ -40,7 +41,12 @@ const PacienteCard = ({ pacient }) => {
         Sintomas: {''}
         <span className='font-normal normal-case'>{sintomas}</span>
       </p>
-      <button onClick={() => deleteData(id)}>eliminar</button>
+      <button
+        className='bg-red-900 w-full p-3 text-white uppercase font-bold hover:bg-red-600 cursor-pointer transition-all'
+        onClick={() => deleteData(id)}
+      >
+        eliminar
+      </button>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { urlApi } from '../helpers/url';
 
-const Formulario = ({ pacientes, setPacientes }) => {
+const Formulario = ({ getData }) => {
   const [nombre, setNombre] = useState('');
   const [propietario, setPropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -13,6 +13,7 @@ const Formulario = ({ pacientes, setPacientes }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     postData();
+
     setNombre('');
     setPropietario('');
     setEmail('');
@@ -32,44 +33,52 @@ const Formulario = ({ pacientes, setPacientes }) => {
   const postData = () => {
     axios
       .post(urlApi, mascotaDatos)
-      .then((resp) => console.log(resp.data))
+      .then((resp) => getData())
       .catch((error) => console.log(error));
   };
   return (
     <div className='md:w-1/2 lg:w-2/5'>
-      <h3>Ingrese Paciente</h3>
-      <form onSubmit={handleSubmit} className='shadow-md'>
+      <h3 className='font-black text-3xl text-center'>Ingrese Paciente</h3>
+      <form
+        onSubmit={handleSubmit}
+        className='bg-white shadow-md rounded-lg py-10 px-5 mb-10 mx-5'
+      >
         <div className='mb-5'>
-          <label className='block w-full'>Nombre Mascota</label>
+          <label className='text-gray-700 uppercase font-bold w-full'>
+            Nombre Mascota
+          </label>
           <input
             id='mascota'
             type='text'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             placeholder='Ingrese Nombre Mascota'
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
           />
         </div>
         <div className='mb-5'>
-          <label htmlFor='propietario' className='block'>
+          <label
+            htmlFor='propietario'
+            className='text-gray-700 uppercase font-bold'
+          >
             Nombre Propietario
           </label>
           <input
             id='propietario'
             type='text'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             placeholder='Ingrese Nombre Propietario'
             value={propietario}
             onChange={(e) => setPropietario(e.target.value)}
           />
         </div>
         <div className='mb-5'>
-          <label htmlFor='email' className='block'>
+          <label htmlFor='email' className='text-gray-700 uppercase font-bold'>
             Email
           </label>
           <input
             id='email'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             type='text'
             placeholder='Ingrese Email'
             value={email}
@@ -77,12 +86,15 @@ const Formulario = ({ pacientes, setPacientes }) => {
           />
         </div>
         <div className='mb-5'>
-          <label htmlFor='direccion' className='block'>
+          <label
+            htmlFor='direccion'
+            className='text-gray-700 uppercase font-bold'
+          >
             Direccion
           </label>
           <input
             id='direccion'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             type='text'
             placeholder='Ingrese Direccion'
             value={direccion}
@@ -90,26 +102,32 @@ const Formulario = ({ pacientes, setPacientes }) => {
           />
         </div>
         <div className='mb-5'>
-          <label htmlFor='telefono' className='block'>
+          <label
+            htmlFor='telefono'
+            className='text-gray-700 uppercase font-bold'
+          >
             Telefono
           </label>
           <input
             id='telefono'
             type='text'
             placeholder='Ingrese Telefono'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             value={telefono}
             onChange={(e) => setTelefono(e.target.value)}
           />
         </div>
         <div className='mb-5'>
-          <label htmlFor='sintomas' className='block'>
+          <label
+            htmlFor='sintomas'
+            className='text-gray-700 uppercase font-bold'
+          >
             Sintomas
           </label>
           <textarea
             id='sintomas'
             placeholder='Ingrese Sintomas'
-            className='border-2 w-full'
+            className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
             value={sintomas}
             onChange={(e) => setSintomas(e.target.value)}
           ></textarea>

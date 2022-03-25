@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
 import { urlApi } from '../helpers/url';
 import Formulario from './Formulario';
 import ListadoPacientes from './ListadoPacientes';
@@ -20,8 +19,16 @@ const Pacientes = () => {
 
   return (
     <div className='flex'>
-      <Formulario pacientes={pacientes} setPacientes={setPacientes} />
-      <ListadoPacientes pacientes={pacientes} setPacientes={setPacientes} />
+      <Formulario
+        pacientes={pacientes}
+        setPacientes={setPacientes}
+        getdata={getData}
+      />
+      <ListadoPacientes
+        pacientes={pacientes}
+        setPacientes={setPacientes}
+        getdata={getData}
+      />
     </div>
   );
 };

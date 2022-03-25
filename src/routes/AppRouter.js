@@ -5,10 +5,7 @@ import Pacientes from '../components/Pacientes';
 
 function App() {
   return (
-    <div className='border-2 container mx-auto mt-20'>
-      <h1 className='border-2 border-red-900 text-center text-3xl'>
-        Veterinaria
-      </h1>
+    <div className=' container mx-auto '>
       <BrowserRouter>
         <Navbar />
         <Routes>
