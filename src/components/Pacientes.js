@@ -18,7 +18,7 @@ const Pacientes = () => {
   }, []);
 
   return (
-    <div className='flex'>
+    <div className=' md:flex'>
       <Formulario
         pacientes={pacientes}
         setPacientes={setPacientes}
